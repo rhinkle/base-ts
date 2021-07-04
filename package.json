@@ -1,0 +1,7 @@
+{
+  "name": "base-ts",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Ryan Hinkle <ryan.hinkle@integral.io>",
+  "license": "MIT"
+}
