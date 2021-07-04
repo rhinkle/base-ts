@@ -4,7 +4,12 @@
   "main": "index.js",
   "author": "Ryan Hinkle <ryan.hinkle@integral.io>",
   "license": "MIT",
+  "scripts": {
+    "start": "nodemon"
+  },
   "dependencies": {
+    "nodemon": "^2.0.9",
+    "ts-node": "^10.0.0",
     "typescript": "^4.3.5"
   }
 }
