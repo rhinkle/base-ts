@@ -14,23 +14,29 @@ interface Database<T extends BaseRecord> {
     get(id: string): T | undefined;
 }
 
-class InMemoryDatabase<T extends BaseRecord> implements Database<T> {
-    private db: Record<string, T> = {}
+// Factory Pattern
+function createDatabase<T extends BaseRecord>() {
+    class InMemoryDatabase<T extends BaseRecord> implements Database<T> {
+        private db: Record<string, T> = {}
 
-    get(id: string): T | undefined {
-        return this.db[id];
-    }
+        get(id: string): T | undefined {
+            return this.db[id];
+        }
 
-    set(newValue: T): void {
-        this.db[newValue.id] = newValue;
+        set(newValue: T): void {
+            this.db[newValue.id] = newValue;
+        }
     }
+    return InMemoryDatabase
 }
 
-const bagOfCats = new InMemoryDatabase<Cats>();
+
+const CatsDB = createDatabase<Cats>();
+const bagOfCats = new CatsDB<Cats>();
 
 bagOfCats.set({
     id: "1234",
-    hitPoints: 100,
+    hitPoints: 0,
     attack: 15
 });
 console.log(bagOfCats.get("1234"));
