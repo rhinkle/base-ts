@@ -27,12 +27,12 @@ function createDatabase<T extends BaseRecord>() {
             this.db[newValue.id] = newValue;
         }
     }
-    return InMemoryDatabase
+    // Singleton
+    const db = new InMemoryDatabase<T>()
+    return db;
 }
 
-
-const CatsDB = createDatabase<Cats>();
-const bagOfCats = new CatsDB<Cats>();
+const bagOfCats = createDatabase<Cats>();
 
 bagOfCats.set({
     id: "1234",
