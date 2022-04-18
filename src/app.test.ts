@@ -1,6 +1,9 @@
-describe("First Test", () => {
-    it("jest works", () => {
-        expect.assertions(1);
-        expect(true).toBe(true);
-    })
-})
+describe("Default", () => {
+  it("jest works", () => {
+    expect.assertions(1);
+    expect(true).toBe(true);
+  });
+});
+
+
+
